@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testdb
+    ports:
+      - 5432:5432
+  test-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
